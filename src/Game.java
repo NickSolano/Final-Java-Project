@@ -8,8 +8,9 @@ public class Game {
 
     private int gameTime = 50; // Each move takes 5 game time units
 
-    public Game() {
-        // Initialize the teams here
+    public Game(Team home, Team away) {
+        this.home = home;
+        this. away = away;
 
     }
 
