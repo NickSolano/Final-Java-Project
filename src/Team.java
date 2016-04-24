@@ -32,35 +32,49 @@ abstract public class Team  {
 
     }
     public void chooseBallhandler(){
+
         Player ballHandler = players[(int)(Math.random() * (players.length - 1))];
     }
     public void chooseSkill(){
         System.out.println(ballHandler + " has the ball!");
-        System.out.println("1 - Shoot Ball ; 2 - Pass Ball ; 3 - Dunk ; 4 - Dribble and Drive");
+        System.out.println("1 - Shoot the three ; 2 - Pass Ball ; 3 - Dunk ; 4 - Dribble and Drive");
         pickSkill = userinput.nextInt();
         while( flagtrue){
             if ( pickSkill == 1){
-                if(ballHandler.shoot() == true){
-                    addScore(3);
-                }
-            }
-            else if (pickSkill == 2){
-                if(ballHandler.pass() == true){
+               if (ballHandler.shoot() == true){
+                   addScore(3);
+                   flagtrue = flagfalse;
+               }
 
-                }
             }
-            else if (pickSkill == 3){
-                if(ballHandler.dunk() == true) {
+            else if ( pickSkill == 2){
+                if (ballHandler.pass() == true){
+                    chooseBallhandler();
+                }
+
+            }
+            else if ( pickSkill == 3){
+                if (ballHandler.shoot() == true){
                     addScore(2);
+                    flagtrue = flagfalse;
                 }
+
             }
-            else if (pickSkill == 4){
-                if(ballHandler.layup() == true){
-                    addScore(2);
+            else if ( pickSkill == 4){
+                if (ballHandler.shoot() == true){
+                    System.out.println(" That was a monster jam!");
+                    addScore(4);
+                    flagtrue = flagfalse;
                 }
+
             }
+            else
+                System.out.println(ballHandler + " missed the shot! The 96 bulls have the ball!");
+                addScore(0);
+                flagtrue = flagfalse;
         }
     }
+
 
     public void addScore(int score) {
         this.score += score;

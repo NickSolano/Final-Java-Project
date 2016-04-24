@@ -10,6 +10,7 @@ public class Game {
 
     public Game() {
         // Initialize the teams here
+
     }
 
     public Team play() {
@@ -19,11 +20,17 @@ public class Game {
         // Other team has the ball, until shot
         // Repeat
         while(gameTime > 0) {
-            // Either return 0, 2, 3 and then gets added to the total score
+            // Either return 0, 2, 3 and then gets added to the total score then subtract game time
             int score = teamWithPosession.play();
             teamWithPosession.addScore(score);
             gameTime = gameTime - 5;
             // switch possession if teamwithPosseion == home then switch to away or something like that
+            if( teamWithPosession == home){
+                teamWithPosession = away;
+            }
+            else{
+                teamWithPosession = home;
+            }
         }
         return home.getScore() > away.getScore() ? home : away;
     }
