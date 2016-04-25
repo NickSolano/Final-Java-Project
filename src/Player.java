@@ -1,13 +1,9 @@
 import java.util.HashMap;
 
-/**
- * Created by Blackcitadelz on 4/23/2016.
- */
 public class Player {
 
     private String playerName;
     private HashMap<String, Integer> skills;
-    private final int SUCCESS = 7;
 
 
     public Player(String playerName, int shootingRating, int passingRating, int layupRating, int dunkRating) {
@@ -26,20 +22,9 @@ public class Player {
     public int getSkillRating(String skillName) {
         return skills.get(skillName);
     }
-
-    // Need Rng
-    public boolean pass() { return false; }
-
-    public boolean shoot() {
-        return false;
+    public int getScoredPoints(String skillName){
+        return skills.get(skillName);
     }
 
-    public boolean layup() {
-        return false;
-    }
-
-    public boolean dunk() {
-        return false;
-    }
 
 }
